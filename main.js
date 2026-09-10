@@ -1,0 +1,3 @@
+initCanvas();
+initInput();
+startLoop();
