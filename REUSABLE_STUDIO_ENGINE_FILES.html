@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reusable Studio Engine - Files to Push</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+        line-height: 1.6; color: #333; background: #f5f5f5; padding: 40px 20px;
+    }
+    .container {
+        max-width: 900px; margin: 0 auto; background: white; padding: 40px;
+        border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    h1 { color: #0a0e27; border-bottom: 3px solid #64ffda; padding-bottom: 10px; margin-bottom: 24px; }
+    h2 { color: #0a0e27; margin-top: 34px; margin-bottom: 14px; font-size: 1.35em; }
+    h3 { color: #0a0e27; font-family: 'Monaco', 'Courier New', monospace; font-size: 0.98em; }
+    p { margin-bottom: 10px; }
+    ol, ul { margin: 10px 0 10px 26px; }
+    li { padding: 3px 0; }
+    .section {
+        margin: 18px 0; padding: 18px 20px; background: #f9f9f9;
+        border-left: 4px solid #64ffda; border-radius: 4px;
+    }
+    .url {
+        background: #f0f0f0; padding: 10px 15px; border-radius: 4px;
+        font-family: 'Monaco', 'Courier New', monospace; margin: 10px 0; word-break: break-all;
+    }
+    .code-block {
+        background: #0a0e27; color: #d6f7ef; padding: 16px; border-radius: 4px;
+        font-family: 'Monaco', 'Courier New', monospace; margin: 0;
+        overflow-x: auto; font-size: 0.82em; white-space: pre; tab-size: 2;
+    }
+    .warning {
+        background: #fff3cd; border-left: 4px solid #ffc107; padding: 14px 18px;
+        margin: 18px 0; border-radius: 4px;
+    }
+    .success {
+        background: #d4edda; border-left: 4px solid #28a745; padding: 14px 18px;
+        margin: 18px 0; border-radius: 4px;
+    }
+    .file-block { margin: 22px 0; }
+    .file-head {
+        display: flex; align-items: center; justify-content: space-between;
+        gap: 12px; margin-bottom: 6px;
+    }
+    .copy-btn {
+        background: #0a0e27; color: #64ffda; border: 1px solid #64ffda;
+        padding: 5px 14px; border-radius: 4px; font-size: 0.8em; cursor: pointer;
+        font-family: 'Monaco', 'Courier New', monospace; flex-shrink: 0;
+    }
+    .copy-btn:hover { background: #64ffda; color: #0a0e27; }
+    .copy-btn.done { background: #28a745; color: white; border-color: #28a745; }
+    details { margin: 14px 0; }
+    summary { cursor: pointer; font-weight: bold; color: #0a0e27; padding: 6px 0; }
+    code { background: #f0f0f0; padding: 1px 5px; border-radius: 3px; font-family: 'Monaco','Courier New',monospace; font-size: 0.9em; }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Reusable Studio Engine &mdash; Files to Push</h1>
+
+    <div class="success">
+        <strong>Status:</strong> Local build complete and verified working in a browser
+        (dark canvas, cyan ring, ring grows/shrinks with the mouse, no console errors).
+        Nothing committed, pushed, or deployed yet. The 10 files below are what need to go up.
+    </div>
+
+    <h2>Remaining steps</h2>
+    <ol>
+        <li><strong>Add the 10 files</strong> below to the repo (web UI copy-paste, or terminal &mdash; see next section).</li>
+        <li><strong>Push</strong> to <code>main</code> on GitHub.</li>
+        <li><strong>Enable GitHub Pages:</strong> repo Settings &rarr; Pages &rarr; Source &ldquo;Deploy from a branch&rdquo; &rarr; Branch <code>main</code>, Folder <code>/ (root)</code> &rarr; Save.</li>
+        <li><strong>Wait 1&ndash;2 min</strong>, open the live URL, confirm the ring renders and responds to the mouse there.</li>
+        <li><strong>Submit the live link</strong> (not the repo link): <code>https://kliddle29.github.io/reusable-studio-engine</code></li>
+    </ol>
+
+    <h2>Two ways to get the files in</h2>
+    <div class="section">
+        <strong>Option A &mdash; GitHub web UI:</strong> at
+        <code>github.com/kliddle29/reusable-studio-engine</code>, click
+        &ldquo;Add file&rdquo; &rarr; &ldquo;Create new file&rdquo;, type the full path
+        (e.g. <code>src/canvas/loop.js</code> &mdash; folders are created automatically),
+        paste the content using the <strong>Copy</strong> button on each block below, commit. Repeat for all 10.
+    </div>
+    <div class="section">
+        <strong>Option B &mdash; terminal.</strong> The files already exist locally in a clone
+        with <code>origin</code> set. Just run:
+        <pre class="code-block">cd /Users/KenzoLiddle/reusable-studio-engine
+git add .
+git commit -m "add: complete studio engine with all modular files"
+git push origin main</pre>
+    </div>
+
+    <h2>The 10 files</h2>
+    
+        <div class="file-block">
+            <div class="file-head">
+                <h3>style.css</h3>
+                <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            </div>
+            <pre class="code-block" data-lang="css">* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #0a0e27;
+}
+
+canvas {
+  display: block;
+}
+</pre>
+        </div>
+
+        <div class="file-block">
+            <div class="file-head">
+                <h3>main.js</h3>
+                <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            </div>
+            <pre class="code-block" data-lang="js">initCanvas();
+initInput();
+startLoop();
+</pre>
+        </div>
+
+        <div class="file-block">
+            <div class="file-head">
+                <h3>docs/SYSTEM_CHARTER.md</h3>
+                <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            </div>
+            <pre class="code-block" data-lang="markdown"># System Charter
+
+Fill this out before writing any code. One paragraph per section, plain
+language. Copy this file as-is into every fork; only the answers change.
+
+## Intent
+
+What is this sketch about — in one sentence, not a feature list?
+
+&gt; A single ring that responds to where you are on the page. The point
+&gt; is the moment the ring visibly reacts to the mouse, not a full scene.
+
+## Signal
+
+What real-world input drives the system? Where does it come from?
+
+&gt; Mouse X position, read directly from `mousemove` events, 0 at the
+&gt; left edge of the window to the window&#x27;s full width at the right edge.
+
+## Parameter
+
+What number in the sketch actually changes, and across what range?
+
+&gt; Ring radius, 20px to 150px.
+
+## Behavior
+
+How does the signal map to the parameter — in words, before it&#x27;s code?
+
+&gt; Linear. Mouse at the left edge gives the smallest ring; mouse at the
+&gt; right edge gives the largest. `mapRange` in `src/utils/math.js` does
+&gt; the conversion, clamped so the ring never overshoots either bound.
+
+## Constraints
+
+What&#x27;s off the table for this pass? Naming a constraint here is what
+lets `loop.js` stay a sketch instead of growing into an app.
+
+&gt; One signal, one parameter. No color changes, no secondary shapes, no
+&gt; persistence between reloads.
+
+## Non-goals
+
+What would be reasonable to add, but isn&#x27;t part of this charter?
+
+&gt; Multi-touch, keyboard input, sound, particle trails. Any of these is
+&gt; a new charter, not an extension of this one.
+</pre>
+        </div>
+
+        <div class="file-block">
+            <div class="file-head">
+                <h3>docs/ROADMAP.md</h3>
+                <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            </div>
+            <pre class="code-block" data-lang="markdown"># Roadmap
+
+The ritual for turning this engine into a new assignment. Every project
+in this course starts here, in this order.
+
+## 1. Fork
+
+Fork `reusable-studio-engine` on GitHub. Don&#x27;t edit this repository in
+place — it stays the clean template every future assignment forks from.
+
+## 2. Write the charter first
+
+Open `docs/SYSTEM_CHARTER.md` and answer every section before touching
+code: intent, signal, parameter, behavior, constraints, non-goals. If
+you can&#x27;t fill in a section in one sentence, the sketch isn&#x27;t defined
+yet — figuring that out now is cheaper than discovering it in code.
+
+## 3. Build the sketch
+
+The charter maps directly onto the existing modules:
+
+| Charter section | Where it lives in code |
+|---|---|
+| Signal | `src/input/input.js` — what gets captured |
+| Parameter + Behavior | `src/canvas/loop.js` — what gets drawn, and how the signal maps to it |
+| Constraints | Everything you deliberately leave out of `loop.js` |
+
+Leave `setupCanvas.js` and `src/utils/math.js` alone unless the sketch
+genuinely needs a new utility — HiDPI setup and `mapRange`/`clamp`/`lerp`
+cover almost everything a single-signal sketch needs.
+
+## 4. Log decisions as you go
+
+Add a line to `process/changelog.md` each time direction changes, not
+just at the end. See that file for the format.
+
+## 5. Deploy
+
+Repo Settings → Pages → Deploy from a branch → `main` / `/` (root).
+Confirm the live URL actually shows the running sketch before
+submitting — a page that only works locally isn&#x27;t done.
+
+## 6. Submit
+
+Submit the live GitHub Pages link, not the repository link.
+</pre>
+        </div>
+
+        <div class="file-block">
+            <div class="file-head">
+                <h3>docs/PROMPTS.md</h3>
+                <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            </div>
+            <pre class="code-block" data-lang="markdown"># Working with AI on this engine
+
+This engine is small enough to hand to an AI assistant almost whole.
+That&#x27;s useful, and also exactly how a sketch stops being yours. These
+are the ground rules for this course.
+
+## Write the charter yourself, first
+
+If an AI assistant writes `docs/SYSTEM_CHARTER.md`, it will invent a
+signal-parameter-behavior mapping instead of you deciding on one — the
+charter stops being a record of your intent and becomes a record of
+its guess. Ask for code only after the charter is written.
+
+## Good prompts name the module
+
+The engine is split on purpose: signal capture, parameter mapping, and
+drawing are three different files. A prompt that names which one
+you&#x27;re changing gets a smaller, more honest diff than one that doesn&#x27;t.
+
+&gt; Good: &quot;In `src/canvas/loop.js`, map ring radius from mouse Y instead
+&gt; of mouse X, using the existing `mapRange` helper.&quot;
+&gt;
+&gt; Vague: &quot;Make the ring respond to the mouse better.&quot;
+
+## Templates
+
+Fill in the blank and use as-is.
+
+&gt; &quot;In `src/canvas/loop.js`, change the parameter from ring radius to
+&gt; ___, keeping the signal on `input.___`.&quot;
+
+&gt; &quot;In `src/input/input.js`, the signal should come from ___ instead of
+&gt; mouse position. Update `input` and whichever listener captures it.&quot;
+
+&gt; &quot;In `src/utils/math.js`, add a helper that ___. Keep it a pure
+&gt; function like the existing three.&quot;
+
+&gt; &quot;Something in `___.js` is doing ___ instead of ___. Read the file
+&gt; back to me before changing anything.&quot;
+
+## Ask for the tradeoff, not just the code
+
+If a change is a real departure from the charter — a second signal, a
+new dependency, a rewrite of a module instead of an edit — ask the
+assistant to name that explicitly before it writes anything. Silent
+scope creep is harder to catch in a diff than in a sentence.
+
+## Verify what &quot;working&quot; means
+
+An assistant that says a sketch works because the code looks right,
+without having run it, is guessing. Ask it to actually load the page
+and describe what moved, or check that yourself before trusting a
+&quot;done.&quot;
+
+## Log what changed, in your own words
+
+`process/changelog.md` entries should read as your account of what
+happened, not a pasted commit message. If you can&#x27;t summarize a change
+in your own words, you don&#x27;t understand it well enough to submit it.
+
+## Don&#x27;t let the writing sound like nobody wrote it
+
+If a docstring, comment, or changelog entry reads like generic AI
+prose, rewrite it or cut it. Constraints, tradeoffs, and specific
+numbers are worth keeping; hedge words and filler aren&#x27;t.
+</pre>
+        </div>
+
+        <div class="file-block">
+            <div class="file-head">
+                <h3>src/canvas/setupCanvas.js</h3>
+                <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            </div>
+            <pre class="code-block" data-lang="js">const canvas = document.getElementById(&#x27;canvas&#x27;);
+const ctx = canvas.getContext(&#x27;2d&#x27;);
+
+function resizeCanvas() {
+  const dpr = window.devicePixelRatio || 1;
+  canvas.width = window.innerWidth * dpr;
+  canvas.height = window.innerHeight * dpr;
+  canvas.style.width = `${window.innerWidth}px`;
+  canvas.style.height = `${window.innerHeight}px`;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+
+function initCanvas() {
+  window.addEventListener(&#x27;resize&#x27;, resizeCanvas);
+  resizeCanvas();
+}
+</pre>
+        </div>
+
+        <div class="file-block">
+            <div class="file-head">
+                <h3>src/canvas/loop.js</h3>
+                <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            </div>
+            <pre class="code-block" data-lang="js">const BACKGROUND = &#x27;#0a0e27&#x27;;
+const RING_COLOR = &#x27;#64ffda&#x27;;
+const MIN_RADIUS = 20;
+const MAX_RADIUS = 150;
+const RING_WIDTH = 3;
+
+function draw() {
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+
+  ctx.fillStyle = BACKGROUND;
+  ctx.fillRect(0, 0, width, height);
+
+  const radius = mapRange(input.x, 0, width, MIN_RADIUS, MAX_RADIUS);
+
+  ctx.beginPath();
+  ctx.arc(width / 2, height / 2, radius, 0, Math.PI * 2);
+  ctx.strokeStyle = RING_COLOR;
+  ctx.lineWidth = RING_WIDTH;
+  ctx.stroke();
+}
+
+function startLoop() {
+  function frame() {
+    draw();
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+</pre>
+        </div>
+
+        <div class="file-block">
+            <div class="file-head">
+                <h3>src/input/input.js</h3>
+                <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            </div>
+            <pre class="code-block" data-lang="js">const input = {
+  x: window.innerWidth / 2,
+  y: window.innerHeight / 2,
+  keys: {},
+};
+
+function initInput() {
+  window.addEventListener(&#x27;mousemove&#x27;, (event) =&gt; {
+    input.x = event.clientX;
+    input.y = event.clientY;
+  });
+
+  window.addEventListener(&#x27;keydown&#x27;, (event) =&gt; {
+    input.keys[event.key] = true;
+  });
+
+  window.addEventListener(&#x27;keyup&#x27;, (event) =&gt; {
+    input.keys[event.key] = false;
+  });
+}
+</pre>
+        </div>
+
+        <div class="file-block">
+            <div class="file-head">
+                <h3>src/utils/math.js</h3>
+                <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            </div>
+            <pre class="code-block" data-lang="js">function clamp(value, min, max) {
+  return Math.min(Math.max(value, min), max);
+}
+
+function lerp(a, b, t) {
+  return a + (b - a) * t;
+}
+
+function mapRange(value, inMin, inMax, outMin, outMax) {
+  const t = clamp((value - inMin) / (inMax - inMin), 0, 1);
+  return lerp(outMin, outMax, t);
+}
+</pre>
+        </div>
+
+        <div class="file-block">
+            <div class="file-head">
+                <h3>process/changelog.md</h3>
+                <button class="copy-btn" onclick="copyBlock(this)">Copy</button>
+            </div>
+            <pre class="code-block" data-lang="markdown"># Changelog
+
+Short entries, added as direction changed. Newest at the bottom.
+
+- **Scaffold.** Added the modular engine: `src/utils/math.js`
+  (`clamp`/`lerp`/`mapRange`), `src/canvas/setupCanvas.js` (HiDPI
+  canvas + resize), `src/input/input.js` (mouse/touch position),
+  `src/canvas/loop.js` (draw loop), `main.js` (starts the loop). Load
+  order in `index.html` drives the dependency order: utils, canvas
+  setup, canvas loop, input, main.
+- **Reference sketch: mouse-mapped ring.** One signal (mouse X), one
+  parameter (ring radius, 20-150px), linear mapping via `mapRange`.
+  Kept deliberately minimal — this is the charter&#x27;s own worked
+  example, not a feature demo.
+- **Explicit wiring; added keyboard capture.** `setupCanvas.js` and
+  `input.js` used to run themselves as a side effect of being loaded;
+  split each into a definition plus an `init*()` call, and moved those
+  calls into `main.js` so it actually wires canvas, input, and loop
+  together instead of only starting the loop. Also added `keydown`/
+  `keyup` tracking on `input.keys` — the file&#x27;s own job description is
+  &quot;mouse/keyboard signal capture&quot; and it was mouse-only. Dropped the
+  touch handling that was there instead; it was never asked for and
+  never verified against a real touch event.
+</pre>
+        </div>
+
+    <div class="warning">
+        <strong>Before enabling Pages:</strong> confirm all 10 files are committed to
+        <code>main</code>. GitHub Pages serves only committed files.
+    </div>
+
+    <h2>Already on GitHub (no action needed)</h2>
+    <p>These three were committed earlier and are unchanged. <code>index.html</code> is
+    shown for reference so you can check the script load order matches the file paths above.</p>
+    <details>
+        <summary>index.html</summary>
+        <pre class="code-block">&lt;!DOCTYPE html&gt;
+  &lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Reusable Studio Engine&lt;/title&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;canvas id=&quot;canvas&quot;&gt;&lt;/canvas&gt;
+    &lt;script src=&quot;src/utils/math.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;src/canvas/setupCanvas.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;src/canvas/loop.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;src/input/input.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;main.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+</pre>
+    </details>
+    <p style="color:#666;">Also present: <code>README.md</code>, <code>.gitignore</code>.</p>
+
+    <div class="url">Live URL once deployed: https://kliddle29.github.io/reusable-studio-engine</div>
+</div>
+
+<script>
+function copyBlock(btn) {
+    var pre = btn.closest('.file-block').querySelector('pre');
+    navigator.clipboard.writeText(pre.textContent).then(function () {
+        var original = btn.textContent;
+        btn.textContent = 'Copied';
+        btn.classList.add('done');
+        setTimeout(function () {
+            btn.textContent = original;
+            btn.classList.remove('done');
+        }, 1500);
+    });
+}
+</script>
+</body>
+</html>
